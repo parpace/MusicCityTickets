@@ -1,0 +1,3 @@
+CREATE DATABASE MusicCityDatabase;
+CREATE USER MusicCityUser WITH PASSWORD 'password';
+GRANT ALL PRIVILEGES ON DATABASE MusicCityDatabase TO MusicCityUser;
