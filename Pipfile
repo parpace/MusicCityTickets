@@ -4,11 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-
-[dev-packages]
 django = "*"
 psycopg2-binary = "*"
 djangorestframework = "*"
+
+[dev-packages]
+
 
 [requires]
 python_version = "3.10"
