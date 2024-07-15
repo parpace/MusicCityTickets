@@ -6,6 +6,11 @@
         "pipfile-spec": 6,
         "requires": {
             "python_version": "3.10"
+            "sha256": "2a0a3e02407c4bbd07f398abe19163331a8205d60701d8909a5f5114e13e70ed"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.11"
         },
         "sources": [
             {
@@ -42,6 +47,7 @@
             "markers": "python_version >= '3.8'",
             "version": "==3.15.2"
         },
+
         "psycopg2-binary": {
             "hashes": [
                 "sha256:03ef7df18daf2c4c07e2695e8cfd5ee7f748a1d54d802330985a78d2a5a6dca9",
@@ -259,6 +265,7 @@
             ],
             "markers": "python_version < '3.11'",
             "version": "==4.12.2"
+
         }
     }
 }
