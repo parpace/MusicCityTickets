@@ -1,6 +1,6 @@
-# Nashville_Events
+# Music City Tickets
 
-## Music City Tickets ERD
+## ERD
 
 ![Music City Tickets](images/Nashville_Events_ERD.bmp)
 
