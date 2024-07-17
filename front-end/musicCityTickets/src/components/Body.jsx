@@ -3,7 +3,6 @@ import Events from './Events'
 import VenueDetails from './VenueDetails'
 import EventDetails from './EventDetails'
 import Search from './Search'
-import Login from './Login'
 import { Route, Routes } from 'react-router-dom'
 
 export default function Body () {
@@ -17,7 +16,6 @@ export default function Body () {
                 <Route path="/events/edit/:id" element={<EventDetails/>}/>
                 <Route path="/events/new" element={<EventDetails/>}/>
                 <Route path='/search' element={<Search/>}/>
-                <Route path='/login' element={<Login/>}/>
             </Routes>
         </div>
     )
