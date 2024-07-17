@@ -10,7 +10,7 @@ export default function Body () {
             <Routes>
                 <Route path='/' element={<Venues/>}/>
                 <Route path='/events' element={<Events/>}/>
-                <Route path='/events/:selectedVenue' element={<VenueDetails/>}/>
+                <Route path='/venues/:selectedVenue' element={<VenueDetails/>}/>
                 <Route path='/events/:selectedEvent' element={<EventDetails/>}/>
             </Routes>
         </div>
