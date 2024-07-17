@@ -14,7 +14,15 @@ class Event(models.Model):
     performer_name = models.CharField(max_length=50)
     performer_description = models.CharField(max_length=500)
     event_dateAndTime = models.CharField(max_length=50)
-    event_price = models.IntegerField(max_length=100)
+    event_price = models.IntegerField()
 
     def __str__(self):
         return self.event_name
+    
+class User(models.Model):
+    user_name = models.CharField(max_length=20)
+    password = models.CharField(max_length=20)
+    email = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.user_name
