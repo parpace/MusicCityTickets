@@ -40,6 +40,7 @@ export default function Events () {
                     <h2>Performer Description: {event.performer_description}</h2>
                     <h2>Date: {event.event_dateAndTime}</h2>
                     <h2>Price: {event.event_price}$</h2>
+                    <img src={event.photo_url}/>
                 </div>
             ))}
           </div>
