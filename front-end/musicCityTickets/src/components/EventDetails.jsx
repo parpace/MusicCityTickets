@@ -2,8 +2,10 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import './EventDetails.css'
 
 let EVENTS_PATH = "http://127.0.0.1:8000/events/"
+const VENUES_PATH = "http://127.0.0.1:8000/venues/"
 
 export default function EventDetails () {
 
@@ -18,7 +20,7 @@ export default function EventDetails () {
     });
 
     const [isEditing, setIsEditing] = useState(false);
-    // const [venues, setVenues] = useState([]);
+    const [venues, setVenues] = useState([]);
 
 
   useEffect(() => {
@@ -30,13 +32,14 @@ export default function EventDetails () {
     getEventDetails();
   }}, [id]);
 
-//   useEffect(() => {
-//     const getVenues = async () => {
-//         const response = await axios.get(VENUES_PATH);
-//         setVenues(response.data.results);
-//     };
-//     getVenues();
-// }, []);
+  useEffect(() => {
+    const getVenues = async () => {
+        const response = await axios.get(VENUES_PATH);
+        console.log(response.data)
+        setVenues(response.data);
+    };
+    getVenues();
+}, []);
 
   let navigate = useNavigate()
 
@@ -95,13 +98,14 @@ const handleSubmit = async (e) => {
                 </label>
                 <label>
                     Venue:
-                    <input type="number" name="venue_id" value={event.venue_id} onChange={handleChange} required />
-                    {/* <select name="venue_id" value={event.venue_id} onChange={handleChange} required>
+                    {/* <input type="number" name="venue_id" value={event.venue_id} onChange={handleChange} required /> */}
+                    <select name="venue_id" value={event.venue_id} onChange={handleChange} required>
                             <option value="">Select a venue</option>
                             {venues.map((venue) => (
-                                <option key={venue.id} value={venue.id}>{venue.name}</option>
+                                <option key={venue.id} value={venue.id}>{venue.venue_name}</option>
                             ))}
-                        </select> */}
+                            
+                        </select>
                 </label>
                 <button type="submit">{id ? 'Update' : 'Create'} Event</button>
             </form>
@@ -112,8 +116,10 @@ const handleSubmit = async (e) => {
                 <p>Description: {event.performer_description}</p>
                 <p>Date and Time: {event.event_dateAndTime}</p>
                 <p>Price: {event.event_price}$</p>
+                <div className="buttonContainer">
                 <button onClick={toggleEdit}>Edit</button>
-                {id && <button onClick={handleDelete}>Delete</button>}
+                {id && <button className="deleteButton" onClick={handleDelete}>Delete</button>}
+                </div>
             </>
         )}
     </div>

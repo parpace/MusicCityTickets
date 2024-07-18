@@ -1,0 +1,83 @@
+.eventDetails {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.eventDetails h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.eventDetails h2 {
+    color: #555;
+}
+
+.eventDetails p {
+    color: #777;
+    line-height: 1.6;
+    font-size: 1.5em;
+}
+
+.eventDetails form {
+    display: flex;
+    flex-direction: column;
+}
+
+.eventDetails label {
+    margin: 10px 0;
+    color: #333;
+}
+
+.eventDetails input[type="text"],
+.eventDetails input[type="number"],
+.eventDetails select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.eventDetails button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #c8cccf;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.eventDetails button:hover {
+    background-color: grey;
+}
+
+.eventDetails .deleteButton:hover {
+    background-color: #c82333;
+}
+
+.eventDetails .buttonContainer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.eventDetails textarea {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+

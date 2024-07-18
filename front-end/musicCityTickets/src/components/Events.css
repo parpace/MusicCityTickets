@@ -1,0 +1,55 @@
+.events {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.events h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+.pathDesc {
+    padding: 15px;
+    margin: 20px 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: box-shadow 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.pathDesc:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.pathDesc h2 {
+    margin: 5px 0;
+    color: #555;
+}
+
+.pathDesc h2:first-of-type {
+    color: #333;
+}
+
+.events button {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #c8cccf;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.events button:hover {
+    background-color: grey;
+}
+

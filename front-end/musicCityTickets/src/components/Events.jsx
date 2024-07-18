@@ -1,6 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
+import './Events.css'
 
 let EVENTS_PATH = "http://127.0.0.1:8000/events/"
 
@@ -30,7 +31,7 @@ export default function Events () {
     } 
         return (
             
-            <div className="pathInfo">
+            <div className="events">
             <h1>Events Page</h1>
             <button onClick={handleCreate}>Create New Event</button>
             {events.map((event) => (
@@ -40,6 +41,7 @@ export default function Events () {
                     <h2>Performer Description: {event.performer_description}</h2>
                     <h2>Date: {event.event_dateAndTime}</h2>
                     <h2>Price: {event.event_price}$</h2>
+                    <img src={event.photo_url}/>
                 </div>
             ))}
           </div>
