@@ -1,6 +1,6 @@
 import Venues from './Venues'
 import Events from './Events'
-import VenueDetails from './VenueDetails'
+import VenueDetails from './VenueDetails.jsx'
 import EventDetails from './EventDetails'
 import Search from './Search'
 import { Route, Routes } from 'react-router-dom'
@@ -11,6 +11,7 @@ export default function Body () {
             <Routes>
                 <Route path='/' element={<Venues/>}/>
                 <Route path='/events' element={<Events/>}/>
+                <Route path="/Venue/:id" element={<VenueDetails/>}/>
                 <Route path='/venues/:selectedVenue' element={<VenueDetails/>}/>
                 <Route path='/events/:id' element={<EventDetails/>}/>
                 <Route path="/events/edit/:id" element={<EventDetails/>}/>
