@@ -1,43 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Homemade+Apple&display=swap');
+
 .header {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: darkgray;
+    background: linear-gradient(135deg, #800000, #c64212);
+    box-shadow: 0 2px 4px rgba(75, 46, 46, 0.2);
 }
 
 .logo {
-    height: 50px; /* Adjust the height as needed */
+    height: 50px; /*Adjust the height as needed */
     cursor: pointer;
+    border: solid;
 }
 
 .searchForm {
-    flex: 1; /* Allow the search form to grow and take available space */
+    flex: 1; /*Allow the search form to grow and take available space */
     display: flex;
     justify-content: center;
 }
 
 .searchBar {
-    width: 60%; /* Adjust the width as needed */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1em;
+    width: 60%; /*Adjust the width as needed */
+    padding: 0.5rem;
+    border: none;
+    /* border: 1px solid #ccc; */
+    border-radius: 4px 0 0 4px;
+    font-size: 0.9em;
 }
 
 .searchBtn {
-    padding: 10px;
+    /* padding: 10px;
     margin-left: 10px;
     background-color: #1a1a1a;
     color: white;
     border: none;
     border-radius: 4px;
+    cursor: pointer; */
+    background-color: #ffdb58;
+    color: #4b2e2e;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
     cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    transition: background-color 0.3s ease;
 }
 
 .searchBtn:hover {
-    background-color: #646cff;
+    background-color: #ffd700;;
 }
 
 .headerLinks {
@@ -46,16 +59,24 @@
 }
 
 .headerLinks button {
-    margin-left: 20px;
+    /* margin-left: 20px;
     padding: 10px;
     background-color: #1a1a1a;
     color: white;
     border: none;
     border-radius: 4px;
+    cursor: pointer; */
+    margin-left: 20px;
+    background: none;
+    color: #f5f5dc;
+    border: none;
+    font-family: 'Amatic SC', cursive;
+    font-size: 2rem;
     cursor: pointer;
+    transition: color 0.3s ease;
 }
 .headerLinks button:hover {
-    background-color: #646cff;
+    color: #ffdb58;
 }
 
 .userMenu {
@@ -63,13 +84,20 @@
     cursor: pointer;
 }
 
+.userMenu img {
+    width: 40px;
+    height: 40px;
+    border-radius: 1px;
+    cursor: pointer;
+  }
+
 .dropdown {
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: white;
+    background-color: #f5f5dc;
     border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(75, 46, 46, 0.2);
     z-index: 1000;
     list-style: none;
     padding: 10px;
@@ -77,33 +105,91 @@
 
 .dropdown li {
     padding: 5px;
+    color: #4b2e2e;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .dropdown li:hover {
-    background-color: #f0f0f0;
+    background-color: #ffdb58;
 }
 
 .loginOverlay {
     position: absolute;
-    top: 50px;
+    /* top: 50px;
     right: 20px;
     background-color: darkgray;
     border: 1px solid black;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    z-index: 1000; */
+    top: 120px;
+    right: 30px;
+    background: rgb(220, 238, 55, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
 }
+
+.loginForm {
+    background: rgba(255, 219, 88, 0.5);
+    padding: 2rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+    z-index: 101;
+  }
 
 .loginForm input {
-    display: block;
-    margin-bottom: 10px;
-    padding: 5px;
-    width: 100%;
+    padding: 0.5rem;
+    border: 1.5px solid #4b2e2e;
+    border-radius: 9px;
+    font-size: 1rem;
 }
 
-.loginForm button {
+/* .loginForm button {
     display: block;
     padding: 5px;
     width: 100%;
+} */
+
+.loginForm button {
+    position:relative;
+    background-color: rgb(128, 0, 0, 0.8);
+    color: #f5f5dc;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 19px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .loginForm button:hover {
+    background-color: #ff4500;
+  }
+
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  
+    .searchForm {
+      width: 100%;
+    }
+  
+    .searchBar {
+      width: 100%;
+    }
+  
+    .headerLinks {
+      width: 100%;
+      justify-content: space-around;
+    }
 }
+  
