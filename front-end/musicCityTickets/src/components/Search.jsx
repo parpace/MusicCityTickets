@@ -1,6 +1,6 @@
 import { useLocation, Link } from 'react-router-dom'
 
-export default function Search() {
+export default function Search () {
     const location = useLocation()
     const { searchQuery, potentialMatches } = location.state || {}
 

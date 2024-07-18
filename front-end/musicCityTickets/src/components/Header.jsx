@@ -170,6 +170,7 @@ export default function Header () {
                         <img onClick={toggleUserMenu}src={userData.user_photo}/>
                             {showUserMenu && (
                                 <ul className="dropdown">
+                                    <li onClick={() => navigate(`/user/${loggedInUser}`)}>My Events</li>
                                     <li onClick={handleLogout}>Logout</li>
                                 </ul>
                             )}
