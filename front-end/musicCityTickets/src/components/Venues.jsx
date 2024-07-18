@@ -1,10 +1,12 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './Venues.css'
 
 export default function Venues (props) {
 
     const [venues, setVenues] = useState([])
+    const navigate = useNavigate()
 
   useEffect(() => {
     getAllVenues()
@@ -18,6 +20,9 @@ export default function Venues (props) {
       console.error('Error getting venues:', error)
     }
   }
+  const handleVenueClick = (id) => {
+    navigate(`/venue/${id}`)
+  }
 
   return (
 
@@ -25,7 +30,11 @@ export default function Venues (props) {
       <h1>VENUES</h1>
       <div className="venues-grid">
         {venues.map(venue => (
-          <div key={venue.id} className="venue-card">
+          <div 
+          key={venue.id} 
+          className="venue-card"
+          onClick={() => handleVenueClick(venue.id)}
+          >
             <h2>{venue.venue_name}</h2>
             <p>{venue.address}</p>
             <h4 className="venue-description">{venue.venue_description}</h4>
