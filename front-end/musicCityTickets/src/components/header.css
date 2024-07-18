@@ -1,0 +1,109 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: darkgray;
+}
+
+.logo {
+    height: 50px; /* Adjust the height as needed */
+    cursor: pointer;
+}
+
+.searchForm {
+    flex: 1; /* Allow the search form to grow and take available space */
+    display: flex;
+    justify-content: center;
+}
+
+.searchBar {
+    width: 60%; /* Adjust the width as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.searchBtn {
+    padding: 10px;
+    margin-left: 10px;
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.searchBtn:hover {
+    background-color: #646cff;
+}
+
+.headerLinks {
+    display: flex;
+    align-items: center;
+}
+
+.headerLinks button {
+    margin-left: 20px;
+    padding: 10px;
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.headerLinks button:hover {
+    background-color: #646cff;
+}
+
+.userMenu {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    list-style: none;
+    padding: 10px;
+}
+
+.dropdown li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.dropdown li:hover {
+    background-color: #f0f0f0;
+}
+
+.loginOverlay {
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: darkgray;
+    border: 1px solid black;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.loginForm input {
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 100%;
+}
+
+.loginForm button {
+    display: block;
+    padding: 5px;
+    width: 100%;
+}

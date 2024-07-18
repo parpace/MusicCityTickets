@@ -16,9 +16,9 @@ export default function VenueDetails () {
       const response = await axios.get(`http://127.0.0.1:8000/venues/${id}`)
       setVenue(response.data)
     } catch (error) {
-      console.error('Error fetching venue details:', error)
+      console.error('Error getting venue details:', error)
     }
-  };
+  }
 
   if (!venue) {
     return <div>Loading...</div>
@@ -34,9 +34,9 @@ export default function VenueDetails () {
         {venue.events.map(event => (
           <li key={event.id}>
             <h3>{event.event_name}</h3>
-            <p>{event.performer_name}</p>
+            <h4>Artist: {event.performer_name}</h4>
             <p>{event.event_dateAndTime}</p>
-            <p>${event.event_price}</p>
+            <p>Price: ${event.event_price}</p>
           </li>
         ))}
       </ul>
