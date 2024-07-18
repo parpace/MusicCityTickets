@@ -167,7 +167,7 @@ export default function Header () {
                 <button onClick={() => navigate('/events')}>EVENTS</button>
                 {loggedInUser ? (
                     <div className="userMenu" ref={userMenuRef}>
-                        <h3 onClick={toggleUserMenu}>{userData.user_name} Photo</h3>
+                        <img onClick={toggleUserMenu}src={userData.user_photo}/>
                             {showUserMenu && (
                                 <ul className="dropdown">
                                     <li onClick={() => navigate('/userSettings')}>Settings</li>
