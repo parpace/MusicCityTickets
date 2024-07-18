@@ -31,7 +31,20 @@ class VenueSerializer(serializers.HyperlinkedModelSerializer):
        fields = ('id', 'venue_url', 'venue_name', 'address', 'venue_description', 'photo_url', 'events')
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
+    events = serializers.HyperlinkedRelatedField(
+        many=True,
+        view_name='event_detail',
+        read_only=True
+    )
 
     class Meta:
        model = User
-       fields = ('id', 'user_name', 'password', 'email', 'user_photo')
+       fields = ('id', 'user_name', 'password', 'email', 'user_photo', 'events')
+
+class UserEventSerializer(serializers.Serializer):
+    event_id = serializers.IntegerField()
+
+    def validate_event_id(self, value):
+        if not Event.objects.filter(id=value).exists():
+            raise serializers.ValidationError("Event does not exist")
+        return value

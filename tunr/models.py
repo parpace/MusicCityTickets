@@ -26,6 +26,7 @@ class User(models.Model):
     password = models.CharField(max_length=20)
     email = models.CharField(max_length=30)
     user_photo = models.CharField(max_length=200, default='../src/assets/defaultUser.jpg')
+    events = models.ManyToManyField(Event, related_name='users')
 
     def __str__(self):
         return self.user_name

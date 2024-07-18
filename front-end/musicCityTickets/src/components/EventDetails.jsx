@@ -21,53 +21,88 @@ export default function EventDetails () {
 
     const [isEditing, setIsEditing] = useState(false);
     const [venues, setVenues] = useState([]);
+    const [userEvents, setUserEvents]= useState([])
+    const loggedInUser = localStorage.getItem('loggedInUser')
+    const navigate = useNavigate()
 
+    useEffect(() => {
+        if (id) {
+            const getEventDetails = async () => {
+                const response = await axios.get(`${EVENTS_PATH}${id}`);
+                setEvent(response.data);
+            }
+            getEventDetails();
+        }
+    }, [id]);
 
-  useEffect(() => {
-     if (id) {
-    const getEventDetails = async () => {
-      const response = await axios.get(`${EVENTS_PATH}${id}`);
-      setEvent(response.data);
-    }
-    getEventDetails();
-  }}, [id]);
+    useEffect(() => {
+        const getVenues = async () => {
+            const response = await axios.get(VENUES_PATH);
+            console.log(response.data)
+            setVenues(response.data);
+        };
+        getVenues();
+    }, []);
 
-  useEffect(() => {
-    const getVenues = async () => {
-        const response = await axios.get(VENUES_PATH);
-        console.log(response.data)
-        setVenues(response.data);
-    };
-    getVenues();
-}, []);
-
-  let navigate = useNavigate()
+    useEffect(() => {
+        const getUserEvents = async () => {
+            try {
+                const response = await axios.get(`http://127.0.0.1:8000/users/${loggedInUser}`)
+                const events = await Promise.all(
+                    response.data.events.map(eventUrl => axios.get(eventUrl))
+                )
+                setUserEvents(events.map(eventResponse => eventResponse.data))
+            } catch (error) {
+                console.error('Could not fetch user events', error)
+            }
+        }
+        getUserEvents()
+    }, [loggedInUser])
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEvent({ ...event, [name]: value });
-}
-
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (id) {
-        await axios.put(`${EVENTS_PATH}${id}`, event);
-    } else {
-        console.log(event)
-        await axios.post(EVENTS_PATH, event);
-
     }
-    navigate('/events');
-}
 
-  const handleDelete = async () => {
-    await axios.delete(`${EVENTS_PATH}${id}`);
-    navigate('/events');
-}
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (id) {
+            await axios.put(`${EVENTS_PATH}${id}`, event);
+        } else {
+            console.log(event)
+            await axios.post(EVENTS_PATH, event);
 
-   const toggleEdit = () => {
-    setIsEditing(!isEditing);
-};
+        }
+        navigate('/events');
+    }
+
+    const handleDelete = async () => {
+        await axios.delete(`${EVENTS_PATH}${id}`);
+        navigate('/events');
+    }
+
+    const toggleEdit = () => {
+        setIsEditing(!isEditing);
+    };
+
+    const addToMyEvents = async (eventId) => {
+        try {
+            await axios.post(`http://127.0.0.1:8000/users/${loggedInUser}/add_event/`, { event_id: eventId })
+            setUserEvents([...userEvents, event])
+        } catch (error) {
+            console.error('Could not add event to user', error)
+        }
+    }
+
+    const removeFromMyEvents = async (eventId) => {
+        try {
+            await axios.post(`http://127.0.0.1:8000/users/${loggedInUser}/remove_event/`, { event_id: eventId })
+            setUserEvents(userEvents.filter(e => e.id !== eventId))
+        } catch (error) {
+            console.error('Could not remove event from user', error)
+        }
+    }
+    const isUserAttending = userEvents.some(e => e.id === event.id)
 
   if (!event) {
     return <h3>Searching Events</h3>
@@ -111,6 +146,11 @@ const handleSubmit = async (e) => {
             </form>
         ) : (
             <>
+                {isUserAttending ? (
+                        <button className="attendButton" onClick={() => removeFromMyEvents(event.id)}>No longer attending</button>
+                    ) : (
+                        <button className="attendButton" onClick={() => addToMyEvents(event.id)}>Attend</button>
+                    )}
                 <h1>{event.event_name}</h1>
                 <h2>Performer: {event.performer_name}</h2>
                 <p>Description: {event.performer_description}</p>
