@@ -81,7 +81,7 @@ export default function Header () {
             )
 
             if (findVenue) {
-                navigate(`/venues/${findVenue.id}`)
+                navigate(`/venue/${findVenue.id}`)
             } else if (findEvent) {
                 navigate(`/events/${findEvent.id}`)
             } else {

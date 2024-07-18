@@ -116,7 +116,7 @@ const handleSubmit = async (e) => {
                 <p>Description: {event.performer_description}</p>
                 <p>Date and Time: {event.event_dateAndTime}</p>
                 <p>Price: {event.event_price}$</p>
-                <div className="buttonContainer">
+                <div className="button-container">
                 <button onClick={toggleEdit}>Edit</button>
                 {id && <button className="deleteButton" onClick={handleDelete}>Delete</button>}
                 </div>
