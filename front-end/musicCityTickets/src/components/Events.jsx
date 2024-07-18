@@ -34,16 +34,18 @@ export default function Events () {
             <div className="events">
             <h1>Events Page</h1>
             <button onClick={handleCreate}>Create New Event</button>
+            <div className="events-grid">
             {events.map((event) => (
                 <div key={event.id} onClick={() => showEvent(event.id)} className="pathDesc">
                     <h2>{event.event_name}</h2>
-                    <h2>Performer: {event.performer_name}</h2>
-                    <h2>Performer Description: {event.performer_description}</h2>
-                    <h2>Date: {event.event_dateAndTime}</h2>
-                    <h2>Price: {event.event_price}$</h2>
+                    <p>Performer: <span className="highlight">{event.performer_name}</span></p>
+                    <p>Performer Description: {event.performer_description}</p>
+                    <p>Date: <span className="highlight">{event.event_dateAndTime}</span></p>
+                    <p>Price: <span className="highlight">{event.event_price}$</span></p>
                     <img src={event.photo_url}/>
                 </div>
             ))}
+            </div>
           </div>
         )
         
