@@ -81,7 +81,7 @@ export default function Header () {
             )
 
             if (findVenue) {
-                navigate(`/venues/${findVenue.id}`)
+                navigate(`/venue/${findVenue.id}`)
             } else if (findEvent) {
                 navigate(`/events/${findEvent.id}`)
             } else {
@@ -170,7 +170,6 @@ export default function Header () {
                         <img onClick={toggleUserMenu}src={userData.user_photo}/>
                             {showUserMenu && (
                                 <ul className="dropdown">
-                                    <li onClick={() => navigate('/userSettings')}>Settings</li>
                                     <li onClick={handleLogout}>Logout</li>
                                 </ul>
                             )}
