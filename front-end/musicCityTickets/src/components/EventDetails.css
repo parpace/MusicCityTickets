@@ -1,36 +1,74 @@
+ @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Homemade+Apple&display=swap');
+
+body {
+  background-color: #f5f5dc;  /* page's background color beige */
+  background-image: 
+    linear-gradient(45deg, #f5f5dc 25%, transparent 25%),
+    linear-gradient(-45deg, #f5f5dc 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #f5f5dc 75%),
+    linear-gradient(-45deg, transparent 75%, #f5f5dc 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  color: #4b2e2e;   /*  dark brown for all text on page */
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
 .eventDetails {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #fff, #f5f5dc);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(75, 46, 46, 0.1);
+  text-align: center;
+  margin-top: 50px;
 }
 
 .eventDetails h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
+  font-family: 'Homemade Apple', cursive;
+  color: #800000; 
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(75, 46, 46, 0.1);
+  line-height: 1.4;
+  padding: 2rem;
 }
 
 .eventDetails h2 {
-    color: #555;
+  font-family: 'Amatic SC', cursive;
+  color: #800000; 
+  font-size: 4rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .eventDetails p {
-    color: #777;
-    line-height: 1.6;
-    font-size: 1.5em;
+  color: #4b2e2e; 
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+  text-align: center;
 }
 
-.eventDetails form {
-    display: flex;
-    flex-direction: column;
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.eventDetails label {
-    margin: 10px 0;
-    color: #333;
+label {
+  color: #4b2e2e;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+input, select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .eventDetails input[type="text"],
@@ -42,32 +80,13 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
+    font-size: 1.5rem;
+    background-color: #ffdb58;
+
 }
 
-.eventDetails button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: #c8cccf;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 20px;
-}
-
-.eventDetails button:hover {
-    background-color: grey;
-}
-
-.eventDetails .deleteButton:hover {
-    background-color: #c82333;
-}
-
-.eventDetails .buttonContainer {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+select option:hover {
+   background-color:yellow;
 }
 
 .eventDetails textarea {
@@ -78,6 +97,56 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: 1.5rem;
+    background-color: #ffdb58;
+
 }
 
+.eventDetails button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: black;
+  background-color: #ffdb58;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #ff4500;
+}
+
+.deleteButton:hover {
+  background-color: #ff4500;
+}
+
+.button-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.eventDetails::after {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, #ff4500, #ffdb58);
+  margin-top: 2rem;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .eventDetails {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+}
