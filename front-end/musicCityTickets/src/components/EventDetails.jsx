@@ -133,7 +133,7 @@ export default function EventDetails () {
                 </label>
                 <label>
                     Venue:
-                    {/* <input type="number" name="venue_id" value={event.venue_id} onChange={handleChange} required /> */}
+        
                     <select name="venue_id" value={event.venue_id} onChange={handleChange} required>
                             <option value="">Select a venue</option>
                             {venues.map((venue) => (
@@ -155,7 +155,7 @@ export default function EventDetails () {
                 <h2>Performer: {event.performer_name}</h2>
                 <p>Description: {event.performer_description}</p>
                 <p>Date and Time: {event.event_dateAndTime}</p>
-                <p>Price: {event.event_price}$</p>
+                <p>Price: ${event.event_price}</p>
                 <div className="button-container">
                 <button onClick={toggleEdit}>Edit</button>
                 {id && <button className="deleteButton" onClick={handleDelete}>Delete</button>}
