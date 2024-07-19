@@ -21,7 +21,6 @@ export default function Header () {
         if (loggedInUser) {
             const getUserData = async (userId) => {
                 const response = await axios.get(`http://127.0.0.1:8000/users/${userId}`)
-                // console.log(response)
                 setUserData(response.data)
             }
             getUserData(loggedInUser)
@@ -31,7 +30,6 @@ export default function Header () {
             try {
                 const response = await axios.get(`http://127.0.0.1:8000/users/`)
                 setUsers(response.data)
-                // console.log(response.data)
             } catch (error) {
                 console.error('Could not find users', error)
             }
@@ -70,7 +68,7 @@ export default function Header () {
             const venues = venuesResponse.data
             const events = eventsResponse.data
 
-            // Adjust the search query so that capitalization and extra spaces don't matter
+        
             const adjustedSearchQuery = searchQuery.trim().toLowerCase()
 
             const findVenue = venues.find(venue =>
@@ -85,7 +83,7 @@ export default function Header () {
             } else if (findEvent) {
                 navigate(`/events/${findEvent.id}`)
             } else {
-                // Had to go deep with AI to get this solution! I was using a .includes method to filter venues and events that had similiar characters to the search, but I wanted more... A search that actually tries to find the MOST similiar events and venues. Super fun to learn about different ways of comparing words.
+               
                 const potentialMatches = [
                     ...venues.map(venue => ({
                         ...venue,
@@ -142,7 +140,6 @@ export default function Header () {
             setShowLoginForm(false)
         }
         window.location.reload()
-        // console.log(user.id)
     }
 
     const handleLogout = () => {

@@ -1,18 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Homemade+Apple&display=swap');
 
-/* #root {
-    text-align: center;
-} */
 body {
-  background-color: #f5f5dc;      /* page's background color */
-  background-image: 
+  background-color: #f5f5dc;     
+  background-image:  
     linear-gradient(45deg, #f5f5dc 25%, transparent 25%),
     linear-gradient(-45deg, #f5f5dc 25%, transparent 25%),
     linear-gradient(45deg, transparent 75%, #f5f5dc 75%),
     linear-gradient(-45deg, transparent 75%, #f5f5dc 75%);
   background-size: 20px 20px;
   background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-  color: #4b2e2e;              /* dark brown for all text on page*/
+  color: #4b2e2e;              
   font-family: Arial, sans-serif;
   line-height: 1.6;
 }
@@ -71,7 +68,7 @@ h1 {
 .pathDesc h2 {
   font-family: 'Amatic SC', cursive;
   color: #800000; 
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   font-size: 2rem;
   letter-spacing: 1px;
   position: relative;
@@ -126,6 +123,14 @@ h1 {
 }
 .events button:hover {
     background-color: #ff4500;
+}
+
+.pathDesc img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-top: 1rem;
 }
 
 @media (max-width: 768px) {

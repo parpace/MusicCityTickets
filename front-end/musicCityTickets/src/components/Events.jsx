@@ -41,7 +41,7 @@ export default function Events () {
                     <p>Performer: <span className="highlight">{event.performer_name}</span></p>
                     <p>Performer Description: {event.performer_description}</p>
                     <p>Date: <span className="highlight">{event.event_dateAndTime}</span></p>
-                    <p>Price: <span className="highlight">{event.event_price}$</span></p>
+                    <p>Price: <span className="highlight">${event.event_price}</span></p>
                     <img src={event.photo_url}/>
                 </div>
             ))}
