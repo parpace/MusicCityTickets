@@ -146,11 +146,13 @@ export default function EventDetails () {
             </form>
         ) : (
             <>
-                {isUserAttending ? (
+                {loggedInUser && (
+                    isUserAttending ? (
                         <button className="attendButton" onClick={() => removeFromMyEvents(event.id)}>No longer attending</button>
                     ) : (
                         <button className="attendButton" onClick={() => addToMyEvents(event.id)}>Attend</button>
-                    )}
+                    )
+                )}
                 <h1>{event.event_name}</h1>
                 <h2>Performer: {event.performer_name}</h2>
                 <p>Description: {event.performer_description}</p>

@@ -139,11 +139,13 @@ export default function Header () {
             localStorage.setItem('loggedInUser', user.id)
             setShowLoginForm(false)
         }
+        window.location.reload()
     }
 
     const handleLogout = () => {
         localStorage.removeItem('loggedInUser')
         setShowUserMenu(false)
+        window.location.reload()
     }
     
     return (
